@@ -1,0 +1,33 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<div class="header">
+    	<h3 class="title">
+        全部商品分类 <br>
+        </h3>
+    </div>
+	
+	<!--{foreach from=$xp-categories item=cat}-->
+    <div class="panel-pane">
+         <h2 class="pane-title menu_option">
+             <a href="{$cat.url}">{$cat.name|escape:html}<span></span></a><span style="position:absolute;right:15px;top:15px;color:#fff"><i class="icomoon-arrow-right-17 navico"></i></span>
+          
+         <div class="dmgPop">
+        <div class="dmgDrop">
+            <!--{foreach from=$cat.cat_id item=child}-->   
+			<dl class="subList">
+                <dt>
+                    <a href="{$child.url}"><em>{$child.name|escape:html}</em></a>
+                </dt>
+				<dd>
+				<!--{foreach from=$child.cat_id item=grandchild}-->
+                    <a href="{$grandchild.url}"><em>{$grandchild.name|escape:html}</em></a>
+				<!--{/foreach}-->
+                </dd>
+            </dl>
+        <!--{/foreach}-->  
+        </div>
+    </div>
+         </h2>
+    </div>
+	<!--{/foreach}-->
+    

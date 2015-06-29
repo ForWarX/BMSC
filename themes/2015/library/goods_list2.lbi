@@ -1,0 +1,209 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div class="box">
+ <div class="box_1">
+   <!-- {if $category > 0} -->
+  <form name="compareForm" action="compare.php" method="post" onSubmit="return compareGoods(this);">
+    <!-- {/if} -->
+    <!-- {if $pager.display == 'list'} -->
+    <div class="goodsList">
+    <!--{foreach name=goods_list from=$goods_list item=goods}-->
+    <ul class="clearfix bgcolor"<!--{if $smarty.foreach.goods_list.index mod 2 eq 0}-->id=""<!--{else}-->id="bgcolor"<!--{/if}-->>
+    <li class="thumb"><a href="{$goods.url}"><div style="position:relative;"><img src="{$goods.goods_thumb}" alt="{$goods.goods_name}" /></a></div></li>
+    <li class="goodsName">
+    <div class="div_name">
+    <a href="{$goods.url}" class="f6">
+        <!-- {if $goods.goods_style_name} -->
+        {$goods.goods_style_name}<br />
+        <!-- {else} -->
+        {$goods.goods_name}<br />
+        <!-- {/if} -->
+      </a>
+     <!-- {if $goods.goods_brief} -->
+    {$lang.goods_brief}{$goods.goods_brief}
+    <!-- {/if} -->
+     </div>
+     <div>
+    <a onclick="getmousepos(event)" href="javascript:addToCart1({$goods.goods_id})"><img src="../images/goumai.gif"></a>
+    <a href="javascript:collect({$goods.goods_id});"><img src="../images/shoucang.gif"></a> 
+    
+    </div>
+    </li>
+
+    <li class="action">
+      <!-- {if $show_marketprice} -->
+    {$lang.market_price}<font class="market" style="padding-right:10px;">{$goods.market_price}</font> <br/>
+    <!-- {/if} -->
+    <!--{if $goods.promote_price neq "" } -->
+    {$lang.promote_price}<font class="shop">{$goods.promote_price}</font> 
+    <!--{else}-->
+    {$lang.shop_price}<font class="shop">{$goods.shop_price}</font> 
+    <!--{/if}-->
+    </li>
+    </ul>
+    <!--{/foreach}-->
+    </div>
+    <!-- {elseif $pager.display == 'grid'} -->
+    <div class="clearfix goodsBox" style="border:none;padding-top:4px;">
+    	
+    
+    <!--{if $cated_listing}-->
+    <!--{foreach from=$cated_listing item=sub_cat}-->
+    
+    
+    <!--{if !empty($sub_cat.list)}-->
+    <div id="{$sub_cat.id}" class="sub-cat-wrap">
+    <div class="sub-cat-name">{$sub_cat.name}</div>
+    
+    <div class="jcarousel_wrapper">
+    <div class="jcarousel" data-wrap="circular">
+    <ul class="switchable_content">
+    <!--{foreach from=$sub_cat.list item=goods}-->
+    <!-- {if $goods.goods_id} -->
+    <li class="switchable_panel">
+        <ul>
+        	<li><a href="{$goods.url}" title="{$goods.goods_name}"><img src="{$goods.goods_thumb}" alt="{$goods.goods_name}" class="goodsimg" /><!--{if $goods.is_shipping eq 1}--><span style="position:absolute;right:5px;color:#fff;background:#f23622;padding:0 5px;">包邮</span><!--{/if}--></a></li>
+            <li><a href="{$goods.url}" title="{$goods.goods_name}"><span style="width:70%;display:block;margin:0 auto;height:36px;overflow:hidden;line-height:17px;">{$goods.goods_name}</span></a></li>
+            <li>
+            	<!--{if $goods.promote_price neq "" } -->
+           		<font class="shop_s2">{$goods.promote_price}</font><br />
+            	<!--{else}-->
+           		<font class="shop_s2">{$goods.shop_price}</font><br />
+            	<!--{/if}-->
+            </li>
+            <li id="buttons">
+            	<span style="display:block;width:70%;margin:0 auto;">
+                <ul>
+                    <li><a href="javascript:collect({$goods.goods_id});"><img src="images/buttons/bm.jpg"/></a></li>
+                    <li><a title="点击此按钮，到下一步确认购买信息。" href="javascript:addToCart1({$goods.goods_id},0,1)" onclick="getmousepos(event)"><img src="images/buttons/bn.jpg"/></a></li>
+                    <li><a href="javascript:addToCart1({$goods.goods_id})" onclick="getmousepos(event)"><img src="images/buttons/atc.jpg"/></a></li>
+            	</ul>
+                </span>
+            </li>
+        </ul>
+        </li>
+    <!--{/if}-->
+    <!--{/foreach}-->
+    </ul>
+    </div>
+    <span class="switch jcarousel-control-prev"><i class="icomoon-arrow-left-16"></i></span>
+<span class="switch jcarousel-control-next"><i class="icomoon-arrow-right-17 "></i></span>
+    </div>
+    
+    <!--<div class="blank"></div>-->
+    <div style="width:100%;text-align:center;"><a class="display_subcat"  data-id="{$sub_cat.id}" style="cursor:pointer;color:#fa6c62"><span>展开</span></a></div>
+    
+    </div>
+    
+    <!--{/if}-->
+    <!--{/foreach}-->
+    <!--{else}-->
+    	<!--{foreach from=$goods_list item=goods}-->
+    <!-- {if $goods.goods_id} -->
+     <div class="goodsItem"><div style="position:relative;"><a href="{$goods.url}"><img src="{$goods.goods_thumb}" alt="{$goods.goods_name}" class="goodsimg" /></a></div><br />
+           <p><a href="{$goods.url}" title="{$goods.name|escape:html}">{$goods.goods_name}</a></p>
+           <!-- {if $show_marketprice} -->
+            <font class="market_s">{$goods.market_price}</font><br />
+            <!-- {/if} -->
+            <!--{if $goods.promote_price neq "" } -->
+           <font class="shop_s">{$goods.promote_price}</font><br />
+            <!--{else}-->
+           <font class="shop_s">{$goods.shop_price}</font><br />
+            <!--{/if}-->
+            <a onclick="getmousepos(event)" href="javascript:addToCart1({$goods.goods_id})"><img src="../images/goumai.gif"></a> &nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="javascript:collect({$goods.goods_id});"><img src="../images/shoucang.gif"></a>
+        </div>
+    <!--{/if}-->
+    <!--{/foreach}-->
+    <!--{/if}-->
+    
+    </div>
+    <!-- {elseif $pager.display == 'text'} -->
+    <div class="goodsList">
+    <!--{foreach from=$goods_list item=goods}-->
+     <ul class="clearfix bgcolor"<!--{if $smarty.foreach.goods_list.index mod 2 eq 0}-->id=""<!--{else}-->id="bgcolor"<!--{/if}-->>
+    <li style="margin-right:15px;">
+    <a href="javascript:;" id="compareLink" onClick="Compare.add({$goods.goods_id},'{$goods.goods_name|escape:"html"}','{$goods.type}')"
+ class="f6">{$lang.compare}</a>
+    </li>
+    <li class="goodsName">
+    <div class="div_name">
+    <a href="{$goods.url}" class="f6 f5">
+        <!-- {if $goods.goods_style_name} -->
+        {$goods.goods_style_name}<br />
+        <!-- {else} -->
+        {$goods.goods_name}<br />
+        <!-- {/if} -->
+      </a>
+     
+     <!-- {if $goods.goods_brief} -->
+    {$lang.goods_brief}{$goods.goods_brief}<br />
+    <!-- {/if} --> 
+    </div>
+     <a href="javascript:collect({$goods.goods_id});" class="bnt_blue">加入收藏</a>
+    <a href="javascript:addToCart({$goods.goods_id})" class="bnt_blue">立即购买</a>
+    </li>
+    <li>
+   
+    </li>
+    <li class="action">
+     <!-- {if $show_marketprice} -->
+    {$lang.market_price}<font class="market">{$goods.market_price}</font><br />
+    <!-- {/if} -->
+    <!--{if $goods.promote_price neq "" } -->
+    {$lang.promote_price}<font class="shop">{$goods.promote_price}</font><br />
+    <!--{else}-->
+    {$lang.shop_price}<font class="shop">{$goods.shop_price}</font><br />
+    <!--{/if}-->
+    </li>
+    </ul>
+    <!--{/foreach}-->
+    </div>
+    <!-- {/if} -->
+  <!-- {if $category > 0} -->
+  </form>
+  <!-- {/if} -->
+
+ </div>
+</div>
+<div class="blank5"></div>
+<script type="Text/Javascript" language="JavaScript">
+<!--
+{literal}
+function selectPage(sel)
+{
+  sel.form.submit();
+}
+{/literal}
+//-->
+</script>
+<script type="text/javascript">
+window.onload = function()
+{
+  Compare.init();
+  fixpng();
+}
+{foreach from=$lang.compare_js item=item key=key}
+{if $key neq 'button_compare'}
+var {$key} = "{$item}";
+{else}
+var button_compare = '';
+{/if}
+{/foreach}
+var compare_no_goods = "{$lang.compare_no_goods}";
+var btn_buy = "{$lang.btn_buy}";
+var is_cancel = "{$lang.is_cancel}";
+var select_spe = "{$lang.select_spe}";
+
+$(".display_subcat").click(function(){
+		var did = $(this).attr("data-id");
+		$("#" + did).css("display","block");
+		$("#" + did + ' .switchable_content').css("width","680px");
+		$("#" + did + ' .switchable_content').css("position","initial");
+		$("#" + did + ' i').css("display","none");
+		
+		$("#" + did).css("height","100%");
+		$("#" + did).siblings().css("display","none");
+});
+</script>
+<script type="text/javascript" src="themes/2015/js/jquery.jcarousel.min.js"></script>
+	<script type="text/javascript" src="themes/2015/js/jcarousel.skeleton.cat.js"></script>

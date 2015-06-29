@@ -1,0 +1,204 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<script type="text/javascript" src="{$ecs_js_path}jssor.core.js"></script>
+<script type="text/javascript" src="{$ecs_js_path}jssor.utils.js"></script>
+<script type="text/javascript" src="{$ecs_js_path}jssor.slider.js"></script>
+<script>
+	jQuery(document).ready(function ($) {
+		var options = {
+			$AutoPlay: true,
+			$AutoPlaySteps: 1,
+			$AutoPlayInterval: 4000,
+			$PauseOnHover: 1,
+			$ArrowKeyNavigation: false,
+			$SlideDuration: 0,
+			$MinDragOffsetToSlide: 20,
+			$SlideSpacing: 5,
+			$DisplayPieces: 1,
+			$ParkingPosition: 0,
+			$UISearchMode: 1,
+			$PlayOrientation: 1,
+			$DragOrientation: 0,
+			$ThumbnailNavigatorOptions: {
+				$Class: $JssorThumbnailNavigator$,
+				$ChanceToShow: 2,
+				$Loop: 2,
+				$AutoCenter: 3,
+				$Lanes: 1,
+				$SpacingX: 0,
+				$SpacingY: 0,
+				$DisplayPieces: 4,
+				$ParkingPosition: 0,
+				$Orientation: 2,
+				$DisableDrag: true
+			}
+		};
+
+		var jssor_slider1 = new $JssorSlider$("slider1_container", options);
+		var jssor_slider2 = new $JssorSlider$("slider2_container", options);
+		var jssor_slider3 = new $JssorSlider$("slider3_container", options);
+		var jssor_slider4 = new $JssorSlider$("slider4_container", options);
+
+		
+	});
+</script>
+	<div id="slider1_container" class="slider_container">
+        <div u="loading" class="loading">
+            <div class="ld1">
+            </div>
+            <div class="ld2">
+            </div>
+        </div>
+        <div u="slides" class="slides">
+            <!--{foreach from=$three_each_0 item=goods}-->
+            <div>
+                <div class="kjContInner" style="display: block;">
+                    <div class="kjAdImg">
+                        <a title="{$goods.name}" target="_blank" href="{$goods.url}"><img alt="{$goods.name}" src="{$goods.thumb}"></a>
+                    </div>
+                     <a class="kjAdCover" title="{$goods.name}" target="_blank" href="{$goods.url}"><img alt="trp" src="images/empty.png"></a>
+                    <ul>
+                        <li class="yh18 kjAdCred">
+                        <span class="kjAdPrice"><!--{if $goods.promote_price neq ''}-->{$goods.promote_price}<!--{else}-->{$goods.shop_price}<!--{/if}--></span>
+                        <span style="display:none"></span>
+                        </li>
+                        <li class="kjAdCred"><span style="display:none"></span></li>
+                        <li class="kjAdName">{$goods.name}</li>
+                    </ul>
+                </div>
+                <div u="thumb">
+                    <div class="t">{$goods.cat_name}</div>
+                </div>
+            </div>
+            <!--{/foreach}-->
+        </div>
+		
+		 <div u="thumbnavigator" class="jssort11 thumbnavigator">
+		 <div u="slides" class="slides2">
+                <div u="prototype" class="prototype p">
+                    <thumbnailtemplate class="thumbnailtemplate"></thumbnailtemplate>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="slider2_container" class="slider_container">
+        <div u="loading" class="loading">
+            <div class="ld1">
+            </div>
+            <div class="ld2">
+            </div>
+        </div>
+        <div u="slides" class="slides">
+            <!--{foreach from=$three_each_1 item=goods}-->
+            <div>
+                <div class="kjContInner" style="display: block;">
+                    <div class="kjAdImg">
+                        <a title="{$goods.name}" target="_blank" href="{$goods.url}"><img alt="{$goods.name}" src="{$goods.thumb}"></a>
+                    </div>
+                     <a class="kjAdCover" title="{$goods.name}" target="_blank" href="{$goods.url}"><img alt="trp" src="images/empty.png"></a>
+                    <ul>
+                        <li class="yh18 kjAdCred">
+                        <span class="kjAdPrice"><!--{if $goods.promote_price neq ''}-->{$goods.promote_price}<!--{else}-->{$goods.shop_price}<!--{/if}--></span>
+                        <span style="display:none"></span>
+                        </li>
+                        <li class="kjAdCred"><span style="display:none"></span></li>
+                        <li class="kjAdName">{$goods.name}</li>
+                    </ul>
+                </div>
+                <div u="thumb">
+                    <div class="t">{$goods.cat_name}</div>
+                </div>
+            </div>
+            <!--{/foreach}-->
+        </div>
+		
+		 <div u="thumbnavigator" class="jssort11 thumbnavigator">
+		 <div u="slides" class="slides2">
+                <div u="prototype" class="prototype p">
+                    <thumbnailtemplate class="thumbnailtemplate"></thumbnailtemplate>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="slider3_container" class="slider_container">
+        <div u="loading" class="loading">
+            <div class="ld1">
+            </div>
+            <div class="ld2">
+            </div>
+        </div>
+        <div u="slides" class="slides">
+            <!--{foreach from=$three_each_2 item=goods}-->
+            <div>
+                <div class="kjContInner" style="display: block;">
+                    <div class="kjAdImg">
+                        <a title="{$goods.name}" target="_blank" href="{$goods.url}"><img alt="{$goods.name}" src="{$goods.thumb}"></a>
+                    </div>
+                     <a class="kjAdCover" title="{$goods.name}" target="_blank" href="{$goods.url}"><img alt="trp" src="images/empty.png"></a>
+                    <ul>
+                        <li class="yh18 kjAdCred">
+                        <span class="kjAdPrice"><!--{if $goods.promote_price neq ''}-->{$goods.promote_price}<!--{else}-->{$goods.shop_price}<!--{/if}--></span>
+                        <span style="display:none"></span>
+                        </li>
+                        <li class="kjAdCred"><span style="display:none"></span></li>
+                        <li class="kjAdName">{$goods.name}</li>
+                    </ul>
+                </div>
+                <div u="thumb">
+                    <div class="t">{$goods.cat_name}</div>
+                </div>
+            </div>
+            <!--{/foreach}-->
+        </div>
+		
+		 <div u="thumbnavigator" class="jssort11 thumbnavigator">
+		 <div u="slides" class="slides2">
+                <div u="prototype" class="prototype p">
+                    <thumbnailtemplate class="thumbnailtemplate"></thumbnailtemplate>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="slider4_container" class="slider_container">
+        <div u="loading" class="loading">
+            <div class="ld1">
+            </div>
+            <div class="ld2">
+            </div>
+        </div>
+        <div u="slides" class="slides">
+            <!--{foreach from=$three_each_3 item=goods}-->
+            <div>
+                <div class="kjContInner" style="display: block;">
+                    <div class="kjAdImg">
+                        <a title="{$goods.name}" target="_blank" href="{$goods.url}"><img alt="{$goods.name}" src="{$goods.thumb}"></a>
+                    </div>
+                     <a class="kjAdCover" title="{$goods.name}" target="_blank" href="{$goods.url}"><img alt="trp" src="images/empty.png"></a>
+                    <ul>
+                        <li class="yh18 kjAdCred">
+                        <span class="kjAdPrice"><!--{if $goods.promote_price neq ''}-->{$goods.promote_price}<!--{else}-->{$goods.shop_price}<!--{/if}--></span>
+                        <span style="display:none"></span>
+                        </li>
+                        <li class="kjAdCred"><span style="display:none"></span></li>
+                        <li class="kjAdName">{$goods.name}</li>
+                    </ul>
+                </div>
+                <div u="thumb">
+                    <div class="t">{$goods.cat_name}</div>
+                </div>
+            </div>
+            <!--{/foreach}-->
+        </div>
+		
+		 <div u="thumbnavigator" class="jssort11 thumbnavigator">
+		 <div u="slides" class="slides2">
+                <div u="prototype" class="prototype p">
+                    <thumbnailtemplate class="thumbnailtemplate"></thumbnailtemplate>
+                </div>
+            </div>
+        </div>
+    </div>
+    

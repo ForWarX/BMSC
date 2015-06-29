@@ -1,0 +1,10 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+  	<!--{foreach from=$categories item=cat}-->
+        <div class="panel-pane2">
+            	<span class="cat_icon"><img src="{$cat.icon}"/></span>
+             	<h2 class="pane-title2 menu_option">
+                	<a href="{$cat.url}">{$cat.name|escape:html}<span></span></a>
+             	</h2>
+        </div>
+    <!--{/foreach}--> 

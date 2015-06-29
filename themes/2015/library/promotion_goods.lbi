@@ -1,0 +1,44 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!--{if $promotion_goods}-->
+<div class="box promo_goods">
+ 
+ <div class="box_1">
+   <span style="width:245px;height:30px;background-color:#fa6c62;display:block;color:#fff;line-height:30px;font-size:1.3em;padding-left:10px;">本周特价</span>
+  <div class="promoList clearfix">
+  <ul>
+  <!-- {foreach name=promotion_goods from=$promotion_goods item=goods}-->
+  	<li>
+        <div class="p1" style="float:left;width:72px;">
+            <a href="{$goods.url}" title="{$goods.short_name}">
+                <img src="{$goods.thumb}" alt="{$goods.name|escape:html}" class="samllimg" />
+            </a>
+        </div>
+        <div style="float:left;width:130px;">
+        	<div class="p2" style="margin-top:5px;width:100%;height:35px;overflow:hidden;color:#333;"><a href="{$goods.url}" title="{$goods.name|escape:html}">{$goods.short_name}</a></div>
+            <div style="width:100%;height:40px;overflow:hidden;">
+            	<ul>
+                	<li style="float:left;">
+                    	<ul>
+                        	<li>原 <span style="text-decoration:line-through;">{$goods.shop_price_nf}</span></li>
+                            <li>折扣价</li>
+                        </ul>
+                    </li>
+                    <li style="float:left;font-size:1.7em;color:#fa6c62;padding:13px 0 0 2px;">{$goods.promote_price}</li>
+                </ul>
+            </div>
+        </div>
+        <div class="p3" style="float:right;width:30px;border-left:1px dotted rgba(242,54,34,0.3);">
+        	<ul>
+            	<li><a href="javascript:collect({$goods.goods_id});"><img src="images/buttons/bm.jpg"/></a></li>
+                    <li><a title="点击此按钮，到下一步确认购买信息。" href="javascript:addToCart1({$goods.goods_id},0,1)" onclick="getmousepos(event)"><img src="images/buttons/bn.jpg"/></a></li>
+                    <li><a href="javascript:addToCart1({$goods.goods_id})" onclick="getmousepos(event)"><img src="images/buttons/atc.jpg"/></a></li>
+            </ul>
+        </div>
+    </li>
+  <!-- {/foreach} -->
+  </ul>
+  </div>
+ </div>
+</div>
+<div class="blank5"></div>
+<!--{/if}-->

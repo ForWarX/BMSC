@@ -1,0 +1,216 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="{$ecs_theme_path}style2.css" type="text/css" rel="stylesheet">
+<script type="text/javascript">
+var process_request = "{$lang.process_request}";
+</script>
+{insert_scripts files='jquery.js,jquery.json.js'}
+{insert_scripts files='transport.js,region.js'}
+<div class="header">
+<div class="topNav ">
+<div id="topNavContent" align="center">
+	<span class="f_l"><span>欢迎使用银联卡人民币付款，今日加币兑换人民币的汇率为 <span style="color:#f23622; font-weight:bold">{$exchange_rate}</span></span></span>
+	
+    <div class="f_r log">
+	<!--{$ language_a}-->
+         <ul class="ul1" onmouseover="this.className='ul1 ul1_on'" onmouseout="this.className='ul1'">
+         <a class="a1" href="user.php">我的账户</a>
+          <div class="ul1_float">
+          <ul> 
+             <a href="user.php?act=order_list">我的订单</a>
+             <a href="user.php?act=collection_list">我的收藏</a>
+             <a href="user.php?act=profile">用户信息</a>
+             <a href="user.php?act=address_list">收货地址</a>
+             <!-- {if $cfg.use_integral} 购买此商品可使用P币-->
+             <a href="user.php?act=pcoin_deposit"><img src="../images/pcoin.gif" width="12px">币充值</a>
+             <!-- {/if} -->    
+         </ul>    
+          </div>
+	
+         </ul>
+    </div>
+          <div class="f_r" style=" margin-top:0;_margin-top:7px;">
+              {insert_scripts files='utils.js'}
+               <font id="ECS_MEMBERZONE">{* PBCC 提醒您：根据用户id来调用member_info.lbi显示不同的界面  *}{insert name='member_info'} </font>
+                  <!--{if $navigator_list.top}-->
+                  <!-- {foreach name=nav_top_list from=$navigator_list.top item=nav} -->  
+                  <a href="{$nav.url}" <!-- {if $nav.opennew eq 1} --> target="_blank" <!-- {/if} -->>{$nav.name}</a>
+                  <!-- {/foreach} --> <!-- {/if} -->
+          </div>
+</div>
+</div>
+<div class="block" style=" position:relative; z-index:9999;background-color: #eeeeee;">
+
+<div style="height: 80px;padding: 12px 1px 15px 0;">
+<div style="position:absolute; padding:0px 0px 0px 10px;"><a href="index.php"><img src="../images/logo_2015_1.png"></a></div>
+
+<div id="search"  style="position: absolute;margin-left: auto;margin-right: auto;left: 0;right: 0;">
+   
+  <form id="searchForm" name="searchForm" method="get" action="search.php" onSubmit="return checkSearchForm()"  >
+   <input name="keywords" type="text" id="keyword" class="B_input"/>
+   <input type="hidden" id="sc_ds" value="1" name="sc_ds">
+   <input type="hidden" id="category" value="0" name="category">
+   <input type="hidden" id="brand" value="0" name="brand">
+   <input id="min_price" type="hidden" value="0" name="min_price">
+   <input id="max_price" type="hidden" value="0" name="max_price">
+   <input type="hidden" id="outstock" value="0" name="outstock">
+   <input type="hidden" value="form" name="action">
+   <button type="submit" id="searchSubmit"><img src="images/search_bar.png" width="20" style="margin-left: -2px;">&nbsp;搜全站</button>
+   <div class="hot-search">
+   	<ul>
+        {if $searchkeywords}
+        	<li style="margin-right:0;">热门搜索：</li>
+           {foreach from=$searchkeywords item=val}
+           	<li><a href="search.php?keywords={$val|escape:url}">{$val}</a></li>
+           {/foreach}
+       {/if}
+     </ul>
+    </div>
+    
+  
+   </form>
+   
+</div>
+    <div class="header_right" style="padding:0px 10px 0px 0px;">
+        <div class="cart" id="ECS_CARTINFO">{insert name='cart_info'}</div>
+    </div>
+</div> 
+ 
+ </div> 
+ <div> 
+<table border="0" cellspacing="0" cellpadding="0" style="width:100%;max-width:1210px;margin:0 auto;">
+<tr height="10"><td></td></tr>
+<tr>
+<td style="width:30%;">
+ <table border="0" cellspacing="0" cellpadding="0" style="width:100%;">
+  <tr> 
+  <td style="vertical-align:middle;width:160px;"> 
+ <img src="images/pbn/pbn.jpg">
+  </td> 
+  <td style="vertical-align:middle;"> 
+ <img src="images/pbn/jidixiong.jpg">
+  </td> 
+  <td style="vertical-align:middle;"> 
+ <img src="images/pbn/yinyangrizhi.jpg">
+  </td>   
+  </tr> 
+  </table> 
+ </td>
+ <td>&nbsp;
+ </td>
+</tr>
+<tr height="10"><td></td></tr>
+</table>
+ </div> 
+<div class="g-menu">
+    <!--<div class="all-catalog" >
+      <a href="catalog.php" class="all-btn">所有商品分类<i class="arrow"></i></a>        
+    <div class="IndexAreaL">
+    {include file="/library/new_cat.lbi"} 
+  </div>
+    </div>-->
+	
+    <ul>
+	   <li class="nav-sec"><a>全系营养品</a>
+	   <div class="dropdown all_cat_dropdown">
+		<ul class="primary">
+        <!-- {foreach name=no from=$all-categories item=cat } -->
+			<li><a href="{$cat.url}" class="primary-a"><i class="icomoon-arrow-right-17 navico"></i>{$cat.name}</a></li>	
+    	<!-- {/foreach} -->
+		</ul>
+		</div>
+	  </li>
+      <!-- {foreach name=no from=$navigator_list.middle item=nav } -->
+      <li class="nav-sec"><a href="{$nav.url}" {if $nav.opennew eq 1}target="_blank" {/if}    >{$nav.name}<!-- {if $nav.name eq '促销活动' || $nav.name eq '特别专区' || $nav.name eq '会员中心'}--><i class="icomoon-arrow-down-15"></i><!--{/if}--></a>
+      
+      <div class="dropdown">
+		<ul class="primary">
+        	<!-- {if $nav.name eq '促销活动'}-->
+			<li><i class="icomoon-arrow-right-17 navico"></i><a href="flyers/20141018" target="_blank">本周特价</a></li>
+			<li><i class="icomoon-arrow-right-17 navico"></i><a href="#">优惠券</a></li>
+            <!--{/if}-->
+            <!-- {if $nav.name eq '会员中心'}-->
+            <li><i class="icomoon-arrow-right-17 navico"></i><a href="#">“给福卡”绑定</a></li>
+			<li><i class="icomoon-arrow-right-17 navico"></i><a href="#">兑换中心</a></li>
+            <!--{/if}-->
+            <!-- {if $nav.name eq '特别专区'}-->
+            <li><i class="icomoon-arrow-right-17 navico"></i><a href="#">跨境购</a></li>
+			<li><i class="icomoon-arrow-right-17 navico"></i><a href="#">越洋购</a></li>
+            <li><i class="icomoon-arrow-right-17 navico"></i><a href="#">中国购</a></li>
+            <!--{/if}-->
+		</ul>
+	  </div>
+      </li>
+	  <!-- {/foreach} -->
+
+
+	</ul>
+
+<script language="javascript">
+	/*var obj11 = document.getElementsByClassName("g-menu")[0];
+	var srch = document.getElementById("search-form");
+	var top11 = getTop(obj11);
+	
+	var isIE6 = /msie 6/i.test(navigator.userAgent);
+window.onscroll = function(){
+var bodyScrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+if (bodyScrollTop > top11){
+	
+
+obj11.style.position = (isIE6) ? "absolute" : "fixed";
+obj11.style.top = (isIE6) ? (bodyScrollTop) + "px" : "0px";
+	obj11.style.background = "none repeat scroll 0 0 rgba(249, 106, 100, 0.8)";
+	srch.style.visibility = "visible";
+	srch.style.opacity = "1";
+	} else {
+obj11.style.position = "inherit";
+obj11.style.top = "155px";
+obj11.style.zIndex = "9999";
+srch.style.visibility = "hidden";
+obj11.style.background = "none repeat scroll 0 0 rgba(249, 106, 100, 1)";
+}
+}
+function getTop(e){
+var offset = e.offsetTop;
+if(e.offsetParent != null) offset += getTop(e.offsetParent);
+return offset;
+} */
+$(document).ready(function(){
+	$(".nav-sec").hover(
+		/*function(){
+  		$(".dropdown",this).css('left','0px');
+		$(this).addClass('selected');
+ 		}, 
+		function(){
+		$(".dropdown",this).css('left','-9999px');
+		$(this).removeClass('selected');
+		}*/
+		function(){
+  			//$(this).next().children().css('border-left','1px solid #fff');
+			$(".dropdown",this).css('left','0px');
+			$(".dropdown",this).css('width','98%');
+			$(".dropdown",this).css('z-index','99999999');
+			$(this).addClass('selected');
+ 		}, 
+		function(){
+			//$(this).next().children().css('border-left','1px solid #f23622');
+			$(".dropdown",this).css('left','-9999px');
+			$(this).removeClass('selected');
+		}
+	);
+	
+	/*if (document.all && !document.querySelector) {
+		alert('为了提高用户体验，请升级您的浏览器吧');
+	}*/
+	
+	/*if (document.all && document.querySelector && !document.addEventListener) {
+		alert('为了提高用户体验，请升级您的浏览器吧');
+	}*/
+	
+	if (document.all && !window.atob) {
+		alert('为了提高用户体验，请升级您的浏览器至IE10以上吧');
+	}
+	
+	});
+</script>
+</div>
+</div>

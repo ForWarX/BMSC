@@ -1,0 +1,284 @@
+    <link rel="stylesheet" type="text/css" href="webuploader-master/css/webuploader.css" />
+    <link rel="stylesheet" type="text/css" href="webuploader-master/examples/image-upload/style.css" />
+
+
+	  <div class="blank5"></div>
+      <!--评论表单 start-->
+      <div class="commentsList {if $show_form eq 0}element-invisible{/if}" style="" id="comment_outer_div">
+      <form action="javascript:;" onsubmit="submitComment(this)" method="post" name="commentForm" id="commentForm" style="width:100%;">
+       <table style="width:100%;" border="0" cellspacing="5" cellpadding="0">
+        <!--<tr>
+          <td width="64" align="right">{$lang.username}：</td>
+          <td width="631"{if !$enabled_captcha}{/if}><!--{if $smarty.session.user_name}--><!--<span style="font-weight: 600;">{$smarty.session.user_name}</span><!--{else}--><!--<a href="user.php" id="login">请登录</a><!--{/if}--><!--</td>
+        </tr>
+        <tr>
+          <td align="right">E-mail：</td>
+          <td>
+          <input type="text" name="email" id="email"  maxlength="100" value="{$smarty.session.email|escape}" class="inputBorder"/>
+          </td>
+        </tr>
+        <tr>
+          <td align="right">{$lang.comment_rank}：</td>
+          <td>
+          <input name="comment_rank" type="radio" value="1" id="comment_rank1" /> <img src="../images/stars1.gif" />
+          <input name="comment_rank" type="radio" value="2" id="comment_rank2" /> <img src="../images/stars2.gif" />
+          <input name="comment_rank" type="radio" value="3" id="comment_rank3" /> <img src="../images/stars3.gif" />
+          <input name="comment_rank" type="radio" value="4" id="comment_rank4" /> <img src="../images/stars4.gif" />
+          <input name="comment_rank" type="radio" value="5" checked="checked" id="comment_rank5" /> <img src="../images/stars5.gif" />
+          </td>
+        </tr>-->
+		<tr>
+		<div class="cmt_publish" style="position:relative;">
+    	<div class="white_area" >
+		
+        	<div class="first_row">
+			
+            	<div id="star" class="raty"></div> 评星级，赢P币
+				<div class="show_img_class" style=""><span id="show_img_form" style="padding:2px 0px 0px 0px;">晒单</span></div>
+            </div>
+			
+           	<div class="second_row"><textarea rows="4" cols="50" class="cmt_text" name="content" style="resize: none;"></textarea></div>
+        </div>
+		<input type="hidden" name="cmt_type" value="{$comment_type}" />
+        <input type="hidden" name="id" value="{$id}" />
+        <input type="hidden" id="toggle_id" value="1" />
+        <input type="hidden" name="comment_parent_id" id="comment_parent_id" value="0" />
+        <input name="" type="submit"  value="发表" class="f_r publish" style="border: none;position: absolute;right: -26px;
+top: 152px;">
+		</div>
+		</tr>
+
+        <tr>
+          <td colspan="2" id="upload_img_td">
+		  <div id="upload_img_div" style="display:none;">{include file='library/comments_upload_img.lbi '}</div>
+          </td>
+        </tr>
+      </table>
+      </form>
+      </div>
+      <!--评论表单 end-->
+
+    <div class="blank5"></div>
+
+
+  <!--用户评论 END-->
+<script type="text/javascript">
+//<![CDATA[
+{foreach from=$lang.cmt_lang item=item key=key}
+var {$key} = "{$item}";
+{/foreach}
+{literal}
+/**
+ * 提交评论信息
+*/
+function submitComment(frm)
+{
+
+  if (document.getElementById('login')){
+		alert('请登入后再进行评论');
+        return false;
+  }
+  var cmt = new Object;
+
+  //cmt.username        = frm.elements['username'].value;
+  //cmt.email           = frm.elements['email'].value;
+  cmt.content         = frm.elements['content'].value;
+  cmt.type            = frm.elements['cmt_type'].value;
+  cmt.id              = frm.elements['id'].value;
+  cmt.enabled_captcha = frm.elements['enabled_captcha'] ? frm.elements['enabled_captcha'].value : '0';
+  cmt.captcha         = frm.elements['captcha'] ? frm.elements['captcha'].value : '';
+  cmt.rank            = frm.elements['comment_rank'].value;
+  cmt.parent_id       = frm.elements['comment_parent_id'].value;
+
+  for (i = 0; i < frm.elements['comment_rank'].length; i++)
+  {
+    if (frm.elements['comment_rank'][i].checked)
+    {
+       cmt.rank = frm.elements['comment_rank'][i].value;
+     }
+  }
+
+//  if (cmt.username.length == 0)
+//  {
+//     alert(cmt_empty_username);
+//     return false;
+//  }
+
+  /*if (cmt.email.length > 0)
+  {
+     if (!(Utils.isEmail(cmt.email)))
+     {
+        alert(cmt_error_email);
+        return false;
+      }
+   }
+   else
+   {
+        alert(cmt_empty_email);
+        return false;
+   }*/
+
+   if (cmt.content.length == 0)
+   {
+      alert(cmt_empty_content);
+      return false;
+   }
+
+   if (cmt.enabled_captcha > 0 && cmt.captcha.length == 0 )
+   {
+      alert(captcha_not_null);
+      return false;
+   }
+   
+   if ((img = check_show_img()) === false){return false;}
+
+  Ajax.call('comment.php', 'active_tab=all_comments&cmt=' + JSON.stringify(cmt), commentResponse, 'POST', 'JSON');
+   return false;
+}
+
+/**
+ * 处理提交评论的反馈信息
+*/
+  function commentResponse(result)
+  {
+    if (result.message)
+    {
+      alert(result.message);
+    }
+
+    if (result.error == 0)
+    {
+      var layer = document.getElementById('ECS_COMMENT');
+      document.getElementById('commentForm').reset();
+	  
+	  document.getElementById("toggle_id").value = 1;
+	  document.getElementById("upload_img_div").style.display = "none";
+
+      //document.getElementById('statusBar').style.display = 'none';
+      //document.getElementById('rt_rt_rt').style.left = '376px';
+      //document.getElementById('dndArea').className = "placeholder";
+	  //document.getElementById('filelist').innerHTML = '';
+	 //if (document.getElementById('filelist')){document.getElementById('filelist').innerHTML = '';}
+	  //uploader.reset();
+	  //uploader.onFileQueued('',true);
+	  // uploader.onFileDequeued();
+		/*var IMG_COUNTER = document.getElementById('COUNTER').value;
+		for (var i = 0; i < IMG_COUNTER; i++){uploader.onFileDequeued(false);}*/
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		var img_content = '<div id="wrapper">'+
+        '<div id="container">'+
+            '<!--头部，相册选择和格式选择-->'+
+
+            '<div id="uploader">'+
+                '<div class="queueList">'+
+                    '<div id="dndArea" class="placeholder">'+
+                        '<div id="filePicker"></div>'+
+                        '<p>单次最多可选5张</p>'+
+                    '</div>'+
+                '</div>'+
+                '<div class="statusBar" id="statusBar" style="display:none;">'+
+                    '<div class="progress">'+
+                        '<span class="text">0%</span>'+
+                        '<span class="percentage"></span>'+
+                    '</div><div class="info"></div>'+
+                    '<div class="btns">'+
+                        '<div id="filePicker2"></div><div class="uploadBtn" id="uploadBtn">开始上传</div>'+
+						'<input type="hidden" id="COUNTER" value="" />'+
+                    '</div>'+
+                '</div>'+
+            '</div>'+
+        '</div>'+
+'</div>';
+		
+		
+		
+		
+		
+		
+		
+		
+		document.getElementById('upload_img_div').innerHTML = img_content;
+		
+		
+		//$.getScript("webuploader-master/examples/image-upload/upload.js");	
+		document.getElementById('comment_outer_div').className = document.getElementById('comment_outer_div').className + "element-invisible";
+		
+
+	if (layer)
+      {
+        layer.innerHTML = result.content;
+      }
+    }
+	
+	
+		$('.re_span').on('click', function(event) {
+		$('#show_img_form').css('display','none');
+		var target = $('#comment_outer_div');
+
+		if( target.length ) {
+			event.preventDefault();
+			$('html, body').animate({
+				scrollTop: target.offset().top
+			}, 500);
+		}
+
+	});
+	
+	
+  }
+  
+  	function check_show_img(){
+	var status = true;		
+		
+		$("#filelist li").each(function(){
+					if ($(this).hasClass( "state-complete")){
+						
+					}
+					else {if (confirm('确定要放弃上传已选图片吗') === false){ status = false;	}return false;}
+
+	});
+	return status;
+	}
+  
+
+{/literal}
+//]]>
+
+</script>
+
+    <script type="text/javascript" src="webuploader-master/dist/webuploader.js"></script>
+
+<script>
+$(document).ready(function(){
+    $("#show_img_form").click(function(){
+		
+		if(document.getElementById("toggle_id").value == 1){
+			document.getElementById("toggle_id").value = 0;
+			if (document.getElementById('filelist')){document.getElementById('filelist').innerHTML = '';}
+			$.getScript("webuploader-master/examples/image-upload/upload.js");	
+
+		}		
+		
+        $("#upload_img_div").slideToggle();
+    });	
+});
+</script>
+{if $ready_comment_id neq ""}
+<script>
+$(document).ready(function(){
+	
+		re_span(event,{$ready_comment_id});
+	
+
+});
+</script>
+ {/if}

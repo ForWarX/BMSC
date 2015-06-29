@@ -1,0 +1,225 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>清凉一夏 限时优惠 - {$page_title}</title>
+<!-- TemplateEndEditable --><!-- TemplateBeginEditable name="head" --><!-- TemplateEndEditable -->
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="icon" href="animated_favicon.gif" type="image/gif" />
+<link href="{$event_css_path}" rel="stylesheet" type="text/css" />
+<!-- {if $cat_style} -->
+<link href="{$cat_style}" rel="stylesheet" type="text/css" />
+<!-- {/if} -->
+{* 包含脚本文件 *}
+{insert_scripts files='jquery-1.3.2.min.js,jquery.json-1.3.js,jssor.js,jssor.slider.js'}
+{insert_scripts files='utils.js,common.js,global.js,compare.js,transport.js'}
+<style>
+img[usemap], map area{
+    outline: none;
+}
+</style>
+</head>
+<body><!-- #BeginLibraryItem "/library/20150615_page_header.lbi" --><!-- #EndLibraryItem --><!-- #BeginLibraryItem "/library/cart_notice.lbi" --><!-- #EndLibraryItem -->
+
+<div style="width:100%;height:100%;display:block;">
+<div style="width:1210px;display:block;margin:0 auto;">
+	<div style="background:url('themes/2015/images/20150615/summer_01.jpg');width:100%;height:942px;display:block;position:relative;"><div style="position:absolute;width:100%;text-align:center;bottom:0;">* 以下商品以人民币标价，加币结算，价格会因当天汇率有所波动。</div></div>
+    <div style="width:100%;height:1123px;display:block;">
+   	<img src="themes/2015/images/20150615/summer_02.jpg" width="1210px" height="1123px" usemap="#p1" hidefocus="true"/>
+    <map name="p1">
+      <area shape="circle" coords="491,560,384" href="http://www.kuajingcheng.com/goods.php?id=2832" target="_blank" alt="水宝宝防晒霜">
+    </map>
+    </div>
+    <div style="width:100%;height:872px;display:block;">
+   	<img src="themes/2015/images/20150615/summer_03.jpg" width="1210px" height="872px" usemap="#p2" hidefocus="true"/>
+    <map name="p2">
+      <area shape="rect" coords="227,100,1178,538" href="http://www.kuajingcheng.com/goods.php?id=2838" target="_blank" alt="多芬香体膏">
+    </map>
+    </div>
+  <div style="width:100%;height:844px;display:block;">
+  		<img src="themes/2015/images/20150615/summer_04.jpg" width="1210px" height="844px" usemap="#p3" hidefocus="true"/>
+        <map name="p3">
+          <area shape="rect" coords="18,88,869,537" href="http://www.kuajingcheng.com/goods.php?id=2836" target="_blank" alt="夏日美白套装">
+        </map>
+  </div>
+  <div style="width:100%;height:827px;display:block;">
+  		<img src="themes/2015/images/20150615/summer_05.jpg" width="1210px" height="827px" usemap="#p4" hidefocus="true"/>
+        <map name="p4">
+          <area shape="rect" coords="132,121,1008,607" href="http://www.kuajingcheng.com/goods.php?id=2834" target="_blank" alt="舒芙女士专用脱毛器">
+        </map>
+  </div>
+  <div style="width:100%;height:1042px;display:block;">
+  		<img src="themes/2015/images/20150615/summer_06.jpg" width="1210px" height="1042px" usemap="#p5" hidefocus="true"/>
+        <map name="p5">
+          <area shape="rect" coords="167,163,990,712" href="http://www.kuajingcheng.com/goods.php?id=2833" target="_blank" alt="水宝宝芦荟啫喱">
+        </map>
+  </div>
+  <div style="width:100%;height:1079px;display:block;">
+  		<img src="themes/2015/images/20150615/summer_07.jpg" width="1210px" height="1079px" usemap="#p6" hidefocus="true"/>
+        <map name="p6">
+          <area shape="rect" coords="162,102,1051,596" href="http://www.kuajingcheng.com/goods.php?id=2837" target="_blank" alt="WEIGHT OFF MAX瘦身胶囊">
+        </map>
+  </div>
+    
+</div>
+</div>
+
+  <!-- #BeginLibraryItem "/library/20150615_page_footer.lbi" -->
+
+
+<?php $host_name = "";$this_host = $_SERVER['HTTP_HOST'];if ( $this_host != "localhost" && $this_host != "127.0.0.1.1" && strrev( substr( strrev( $this_host ), 0, strlen( $host_name ) ) ) != $host_name ){ exit( );} ?> 
+ <div class="blank"></div>
+ <div class="blank"></div> 
+ <div class="blank"></div>
+ <div class="footer">
+<!--{if $helps}-->
+<div class="block">
+   <div class="helpTitBg clearfix">
+   
+<!-- {foreach from=$helps item=help_cat name=no} -->
+<dl>
+  <dt> {$help_cat.cat_name}</dt>
+  <dd> <!-- {foreach from=$help_cat.article item=item} -->
+ <a href="{$item.url}" title="{$item.title|escape:html}">{$item.short_title}</a>
+  <!-- {/foreach} --></dd>
+</dl>
+<!-- {/foreach} -->
+  </div>
+</div>
+
+<!--{/if}-->
+ 
+ <div class="blank"></div>
+ 
+
+
+<!--友情链接 start-->
+<!--{if $img_links  or $txt_links }-->
+<div  id="bottomNav" class="block  box">
+ <div class="box_1">
+  <div class="links clearfix">
+    <!--开始图片类型的友情链接{foreach from=$img_links item=link}-->
+    <a href="{$link.url}" target="_blank" title="{$link.name}"><img src="{$link.logo}" alt="{$link.name}" border="0" /></a>
+    <!--结束图片类型的友情链接{/foreach}-->
+    <!-- {if $txt_links} -->
+    <!--开始文字类型的友情链接{foreach from=$txt_links item=link}-->
+    [<a href="{$link.url}" target="_blank" title="{$link.name}">{$link.name}</a>]
+    <!--结束文字类型的友情链接{/foreach}-->
+    <!-- {/if} -->
+  </div>
+ </div>
+</div>
+
+<div class="blank"></div>
+<!--{/if}-->
+
+
+
+<!--底部导航 start-->
+<div id="bottomNav2" class="box block">
+ 
+  <div class="bNavList ">
+ 
+   <!-- {if $navigator_list.bottom} -->
+   <!-- {foreach name=nav_bottom_list from=$navigator_list.bottom item=nav} -->
+        <a href="{$nav.url}" <!-- {if $nav.opennew eq 1} --> target="_blank" <!-- {/if} -->>{$nav.name}</a>
+      <!-- {/foreach} -->
+  <!-- {/if} -->
+ 
+    
+  </div>
+
+</div>
+<!--底部导航 end-->
+<div class="blank"></div>
+<!--版权 start-->
+<div id="footer" class="block950">
+ <div class="text">
+ Copyrights © Polar Bear Canada Corp.,2013-2014{$copyrights}<br />
+ 
+    <!-- Begin DigiCert site seal HTML and JavaScript -->
+<!--<div id="DigiCertClickID_ykke0EsB" data-language="en_US"></div>
+<script type="text/javascript">
+var __dcid = __dcid || [];__dcid.push(["DigiCertClickID_ykke0EsB", "7", "s", "white", "ykke0EsB"]);(function(){var cid=document.createElement("script");cid.async=true;cid.src="//seal.digicert.com/seals/cascade/seal.min.js";var s = document.getElementsByTagName("script");var ls = s[(s.length - 1)];ls.parentNode.insertBefore(cid, ls.nextSibling);}());
+</script>-->
+<!-- End DigiCert site seal HTML and JavaScript -->
+ <!-- 客服电话{if $service_phone} -->
+      Tel: {$service_phone}
+ <!-- 结束客服电话{/if} -->
+ <!-- 邮件{if $service_email} -->
+     <!-- E-mail: {$service_email}<br />-->
+ <!-- 结束邮件{/if} -->
+ <!-- QQ 号码 {foreach from=$qq item=im} -->
+      <!-- {if $im} -->
+      <a href="http://wpa.qq.com/msgrd?V=1&amp;Uin={$im}&amp;Site={$shop_name}&amp;Menu=yes" target="_blank"><img src="http://wpa.qq.com/pa?p=1:{$im}:4" height="16" border="0" alt="QQ" /> {$im}</a>
+      <!-- {/if} -->
+      <!-- {/foreach} 结束QQ号码 -->
+      <!-- 淘宝旺旺 {foreach from=$ww item=im} -->
+      <!-- {if $im} -->
+      <a href="https://amos1.taobao.com/msg.ww?v=2&uid={$im|escape:u8_url}&s=2" target="_blank"><img src="https://amos1.taobao.com/online.ww?v=2&uid={$im|escape:u8_url}&s=2" width="16" height="16" border="0" alt="淘宝旺旺" />{$im}</a>
+      <!-- {/if} -->
+      <!--{/foreach} 结束淘宝旺旺 -->
+      <!-- Yahoo Messenger {foreach from=$ym item=im} -->
+      <!-- {if $im} -->
+      <a href="http://edit.yahoo.com/config/send_webmesg?.target={$im}n&.src=pg" target="_blank"><img src="themes/2015/images/20150615/yahoo.gif" width="18" height="17" border="0" alt="Yahoo Messenger" /> {$im}</a>
+      <!-- {/if} -->
+      <!-- {/foreach} 结束Yahoo Messenger -->
+      <!-- MSN Messenger {foreach from=$msn item=im} -->
+      <!-- {if $im} -->
+      <img src="themes/2015/images/20150615/msn.gif" width="18" height="17" border="0" alt="MSN" /> <a href="msnim:chat?contact={$im}">{$im}</a>
+      <!-- {/if} -->
+      <!-- {/foreach} 结束MSN Messenger -->
+      <!-- Skype {foreach from=$skype item=im} -->
+      <!-- {if $im} -->
+      <img src="http://mystatus.skype.com/smallclassic/{$im|escape:url}" alt="Skype" /><a href="skype:{$im|escape:url}?call">{$im}</a>
+      <!-- {/if} -->
+  <!-- {/foreach} -->
+  <!-- ICP 证书{if $icp_number} -->
+  {$lang.icp_number}:<a href="http://www.miibeian.gov.cn/" target="_blank">{$icp_number}</a><br />
+  <!-- 结束ICP 证书{/if} --><a href="http://www.pbcc.ca" target="_blank" style="font-size:10px">Powered by <strong><span style="color: #3366FF">PBCC</span> <span style="color: #FF9966">Version 2.0.0</span></strong></a></div>       
+  <br />
+    {if $stats_code}
+    <div align="left">{$stats_code}</div>
+    {/if}
+       
+          
+       
+ </div>
+</div>
+
+</div>
+<script src="js/footer.js" type="text/javascript">
+<div class="fixedBox">
+  <ul class="fixedBoxList">
+    <li id="cartboxs" style="display:block;" class="fixeBoxLi cart_bd">
+		<p class="good_cart">0</p>
+			<span class="fixeBoxSpan"></span> <strong>购物车</strong>
+			<div class="cartBox">
+       		<div class="bjfff"></div><div class="message">购物车内暂无商品，赶紧选购吧</div>    </div></li>
+    <li class="fixeBoxLi Service startWork"> <span class="fixeBoxSpan"></span> <strong>在线客服</strong>
+      <div class="ServiceBox">
+        <div class="bjfff"></div>
+        <dl onclick="javascript:;">
+          <dt><img src="../themes/2015/images/20150615/Service1.jpg"></dt>
+          <dd> <strong>在线QQ客服</strong>
+            <p class="p1">9:00-22:00</p>
+            <p class="p2"><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=2479454955&amp;site=qq&amp;menu=yes">点击交谈</a></p>
+          </dd>
+        </dl>
+        <dl onclick="NTKF.im_openInPageChat('kf_10103_1368001605031')">
+          <dt><img src="../themes/2015/images/20150615/Service2.jpg"></dt>
+          <dd> <strong>网页在线客服</strong>
+            <p class="p1">9:00-22:00</p>
+            <p class="p2"><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=2479454955&amp;site=qq&amp;menu=yes">点击交谈</a></p>
+          </dd>
+        </dl>
+      </div>
+    </li>
+    <li class="fixeBoxLi Home"> <a href="./"> <span class="fixeBoxSpan"></span> <strong>返回首页</strong> </a> </li>
+    <li class="fixeBoxLi BackToTop"> <span class="fixeBoxSpan"></span> <strong>返回顶部</strong> </li>
+  </ul>
+</div><!-- #EndLibraryItem --></body>
+</html>

@@ -1,0 +1,17 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!--{if $properties}-->
+    <div class="goods_spec">
+    	<div class="sign2">{$_LANG.goods_spec_h3}</div>
+        <ul>
+        	<!--{foreach from=$properties['商品属性'] item=pro}-->
+        	<li title="{$pro.name}：{$pro.value}">{$pro.name}：{$pro.value}</li>
+            <!--{/foreach}-->
+            <!--{foreach from=$specification item=spe}-->
+        	<li title="{$spe.name}：{$pro.value}">{$spe.name}：{$spe.values.0.label}</li>
+            <!--{/foreach}-->
+        </ul>
+    </div>
+    <div class="blank"></div>
+    <div class="blank"></div>
+    <div class="blank"></div>
+<!--{/if}-->

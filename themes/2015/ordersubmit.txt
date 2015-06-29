@@ -1,0 +1,9 @@
+改了税额：100.1
+改了税额：100.1
+字串：<?xml version='1.0' encoding='UTF-8'?><Message><Header><CustomsCode>3302461400</CustomsCode><OrgName>%E5%AE%81%E6%B3%A2%E5%AE%9D%E4%B9%90%E8%B4%9D%E5%B0%94%E5%9B%BD%E9%99%85%E8%B4%B8%E6%98%93%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8</OrgName><CreateTime>2014-08-08 23:24:08</CreateTime></Header><Body><Order><OrderFrom>0000</OrderFrom><OrderNo>2014080889622</OrderNo><GoodsAmount>1001</GoodsAmount><PostFee>0</PostFee><Amount>1101.1</Amount><BuyerAccount>wayne</BuyerAccount><TaxAmount>100.1</TaxAmount><Goods><Detail><ProductId>310520146140000001</ProductId><GoodsName>混合坚果</GoodsName><Qty>1</Qty><Unit>千克</Unit><Price>1001.00</Price><Amount>1001</Amount></Detail></Goods></Order></Body></Message>
+结果：成功
+改了税额：100.1
+改了税额：100.1
+字串：<?xml version='1.0' encoding='UTF-8'?><Message><Header><CustomsCode>3302461400</CustomsCode><OrgName>%E5%AE%81%E6%B3%A2%E5%AE%9D%E4%B9%90%E8%B4%9D%E5%B0%94%E5%9B%BD%E9%99%85%E8%B4%B8%E6%98%93%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8</OrgName><CreateTime>2014-09-05 02:49:07</CreateTime></Header><Body><Order><OrderFrom>0000</OrderFrom><OrderNo>2014090514888</OrderNo><GoodsAmount>82</GoodsAmount><PostFee>6.4</PostFee><Amount>88.4</Amount><BuyerAccount>wayne</BuyerAccount><TaxAmount>0</TaxAmount><Goods><Detail><ProductId>310520146140000006</ProductId><GoodsName>柯克兰牌蓝莓干</GoodsName><Qty>1</Qty><Unit>千克</Unit><Price>82.00</Price><Amount>82</Amount></Detail></Goods></Order></Body></Message>
+结果：企业备案已被国检锁定，请联系客服。货号为310520146140000006商品已锁定。
+结果：企业备案已被国检锁定，请联系客服。

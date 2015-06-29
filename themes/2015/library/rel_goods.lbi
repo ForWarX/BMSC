@@ -1,0 +1,28 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!--{if $same_cat_product}-->
+     <div class="rel_goods">
+     	<div class="sign" style="font-size: 1.5em;">{$_LANG.goods_related_h3}<div class="right_tri"></div></div>
+        <div class="wrap">
+        	<div class="jcarousel_wrapper">
+        	<div class="jcarousel" data-wrap="circular">
+            <ul class="switchable_content">
+            	<!--{foreach from=$same_cat_product item=good}-->
+                <li class="switchable_panel">
+                	<div class="img" style="position:relative;">        <a target="_blank" href="{$good.url}" title="{$good.goods_name}" class="">        <img width="158" src="{$good.goods_thumb}"><!--{if $good.is_shipping eq 1}--><span style="position:absolute;right:5px;top:5px;color:#fff;background:#f23622;padding:0 5px;">包邮</span><!--{/if}-->                        <p class="gname">{$good.index_short_name}</p></a>                                                </div>
+                </li>
+                <!--{/foreach}-->
+            </ul>
+            </div>
+            <span class="switch jcarousel-control-prev"><i class="icomoon-arrow-left-16"></i></span>
+        <span class="switch jcarousel-control-next"><i class="icomoon-arrow-right-17 "></i></span>
+            </div>
+        </div>
+    </div>
+	
+	<script type="text/javascript" src="themes/2015/js/jquery.jcarousel.min.js"></script>
+	<script type="text/javascript" src="themes/2015/js/jcarousel.skeleton.js"></script>
+    
+    <div class="blank"></div>
+    <div class="blank"></div>
+    <div class="blank"></div>
+<!--{/if}-->
